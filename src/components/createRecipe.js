@@ -2,55 +2,61 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { postRecipies } from "./apiutils"
 
-export const CreateRecipe=()=>{
-    const [inputdata,setInputData]=useState({
-        title:"",
-        author:"",
-        image:"",
-        ingredients:"",
-        receipedirection:""
-    })
-    const navigate=useNavigate()
-    const PostRecipe=()=>{
-        postRecipies().then(res=>alert(res))
-        navigate('/')
+export const CreateRecipe = () => {
+    const [inputdata, setInputData] = useState({
+        title: "",
+        author: "",
+        image: "",
+        ingredients: "",
+        receipedirections: ""
+    })//title, author, image, ingredients, receipedirections
+    const navigate = useNavigate()
+    const PostRecipe = () => {
+        if (inputdata.title !== "" && inputdata.author !== "" && inputdata.image !== "" && inputdata.ingredients !== "" && inputdata.receipedirections !== "") {
+            postRecipies(inputdata).then(res => console.log(res))
+            navigate('/home')
+        }
+        else {
+            alert("please give all the details")
+        }
+
     }
     const HandlepostInput = (e) => {
         setInputData({ ...inputdata, [e.target.name]: e.target.value })
-       // validationUserInputs(e)
+        // validationUserInputs(e)
     }
     console.log(inputdata)
     return (
-        <>
-            <div>
-                <div>Create a recipe</div>
-                <div>Share a recipe with the club by completing the form below</div>
+        <div className="create-container">
+            <div className="container">
+                <div style={{ fontSize: "35px", marginTop: "20px" }}>Create a recipe</div>
+                <div style={{ marginTop: "20px", marginBottom: "20px" }}>Share a recipe with the club by completing the form below</div>
                 <div className="Form">
-                    <div className="">
+                    <div className="cols">
                         <label>Recipe title</label>
-                        <input type={'text'} name="title" onChange={(e)=>HandlepostInput(e)}/>
+                        <input type={'text'} name="title" onChange={(e) => HandlepostInput(e)} />
                     </div>
-                    <div>
+                    <div className="cols">
                         <label>Author</label>
-                        <input type={'text'}  name="author" onChange={(e)=>HandlepostInput(e)}/>
+                        <input type={'text'} name="author" onChange={(e) => HandlepostInput(e)} />
                     </div>
-                    <div>
+                    <div className="cols">
                         <label>please give image url or link</label>
-                        <input type={'url'}  name="image" onChange={(e)=>HandlepostInput(e)}/>
+                        <input type={'url'} name="image" onChange={(e) => HandlepostInput(e)} />
                     </div>
-                    <div>
+                    <div className="cols">
                         <label>Ingredients</label>
-                        <input type={'text'}  name="ingredients" onChange={(e)=>HandlepostInput(e)}/>
+                        <input type={'text'} name="ingredients" onChange={(e) => HandlepostInput(e)} />
                     </div>
-                    <div>
+                    <div className="cols">
                         <label>Recipe directions</label>
-                        <input type={'text'} name="receipedirection"  onChange={(e)=>HandlepostInput(e)}/>
+                        <input type={'text'} name="receipedirections" onChange={(e) => HandlepostInput(e)} />
                     </div>
-                    <div>
-                        <button onClick={()=>PostRecipe()}>Post Recipe</button>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <button onClick={() => PostRecipe()}>Post Recipe</button>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

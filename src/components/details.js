@@ -8,16 +8,17 @@ export const Details = () => {
     const [toggleInstrunction, settoggleInstrunction] = useState(false)
     const Instructions = () => {
         return (
-            <>
-                {recipeedetail.direction}
-            </>
+            <div style={{width:"200px",marginLeft:"10px"}}>
+                {recipeedetail.receipedirections}
+            </div>
         )
     }
     const Ingridients = () => {
         return (
 
-            <>
-                {(recipeedetail.ingridiants).map((data, index) => {
+            <div  style={{width:"200px",marginLeft:"10px"}}>
+                    {recipeedetail.ingredients}
+                {/* {(recipeedetail.ingredients).map((data, index) => {
                     return (
                         <div key={index}>
                             <ul>
@@ -25,21 +26,21 @@ export const Details = () => {
                             </ul>
                         </div>
                     )
-                })}
-            </>
+                })} */}
+            </div>
         )
     }
     return (
         <>
         <Nav/>
-            <div>
+            <div className="details-container">
                 {recipeedetail ?
-                    <>
-                        <div>
+                    <div className="details">
+                        <div style={{width:"50%"}}>
                             <img src={recipeedetail.image} />
                         </div>
                         <div>
-                            <div>
+                            <div className="insta-btn">
                                 <button onClick={()=>settoggleInstrunction(true)}>Instructions</button>
                                 <button onClick={()=>settoggleInstrunction(false)}>Ingridients</button>
                             </div>
@@ -47,7 +48,7 @@ export const Details = () => {
                                 toggleInstrunction ? <Instructions /> : <Ingridients />
                             }
                         </div>
-                    </>
+                    </div>
                     : "no details"}
             </div>
         </>

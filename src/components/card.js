@@ -12,8 +12,8 @@ export const Card = ({ recipe }) => {
     return (
         <>
 
-            <div className="textcont" style={{backgroundImage:`url(${recipe.image})`,height:"350px"}} onClick={() => showRecipe(recipe)}>
-                <div>{recipe.rcipee_title}</div>
+            <div className="textcont" style={{backgroundImage:`url(${recipe.image})`,height:"100%",backgroundSize: "cover"}} onClick={() => showRecipe(recipe)}>
+                <div>{recipe.title}</div>
             </div>
             {/* <div className="" onClick={() => showDetails(blog)} id={blog.id}>
                 <div className="rows upper">

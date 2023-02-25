@@ -14,6 +14,10 @@
     font-family: sans-serif;
     
 }
+.nav-upper-container{
+    display: flex;
+    justify-content: space-between;
+}
 .Serach-container{
     width: 100%;
     display: flex;
@@ -54,15 +58,18 @@
 .Card-cont{
     display: grid;
     grid-template-columns: 350px 350px 350px;
+    column-gap: 5px;
 }
 .Card {
     border: 0.5px solid rgb(221, 218, 218);
     margin: 20px;
     padding: 10px;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     background-color: rgb(249, 246, 246);
-    text-align: center
+    text-align: center;
+    box-shadow: 1px 2px 3px black;
+    border-radius: 8px;
 }
 .textcont{
     display: flex;
@@ -71,4 +78,45 @@
     color: white;
     font-size: xx-large;
     background: 0.1 black;
+}
+.create-container{
+    display: flex;
+  justify-content: center;
+  background-color: black;
+    height: 97vh;
+}
+.create-container .container{
+    border: 1px solid gray;
+    color: white;
+    background-color: black;
+}
+.cols{
+    display: flex;
+    flex-direction: column;
+}
+.details-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+.details-container .details{
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+.insta-btn{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+ 
+}
+.insta-btn button{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(16, 66, 159);
+}
+.insta-btn button:hover{
+    background-color: cornflowerblue;
 }
